@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Відправка показників лічильників у коммунальні служби</title>
+        {% load static %}
+        <link rel="stylesheet" target="_blank" href="{% static 'style.css' %}">
+        <script src="{% static 'script.js' %}"></script>
+    </head>
+    <body>
+        <form method="post">
+            {% csrf_token %}
+            <h2>Перелік організацій</h2>
+            <table>
+                <tr>
+                    <td>
+                        <label>Міські теплові мережі
+                            <input type="checkbox" id="check_teploseti" name="check_teploseti" value="{{ check_teploseti }}" onclick="CheckBoxTeploseti();" checked="checked">
+                        </label>
+                    </td>
+                    <td>
+                        <Label id="label_teploseti" class="{{ result.label_teploseti }}">{{ result.result_teploseti }}</Label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Запоріжжяобленерго
+                            <input type="checkbox" id="check_oblenergo" name="check_oblenergo" value="{{ check_oblenergo }}" onclick="CheckBoxOblenergo();" checked="checked">
+                        </label>
+                    </td>
+                    <td>
+                        <Label id="label_oblenergo" class="{{ result.label_oblenergo }}">{{ result.result_oblenergo }}</Label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Запоріжжяелектропостачання
+                            <input type="checkbox" id="check_elektropostach" name="check_elektropostach" value="{{ check_elektropostach }}" onclick="CheckBoxElektropostach();" checked="checked">
+                        </label>
+                    </td>
+                    <td>
+                        <Label id="label_elektropostach" class="{{ result.label_elektropostach }}">{{ result.result_elektropostach }}</Label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Водоканал
+                            <input type="checkbox" id="check_vodokanal" name="check_vodokanal" value="{{ check_vodokanal }}" onclick="CheckBoxVodokanal();" checked="checked">
+                        </label>
+                    </td>
+                    <td>
+                        <Label id="label_vodokanal" class="{{ result.label_vodokanal }}">{{ result.result_vodokanal }}</Label>
+                    </td>
+                </tr>
+            </table>
+            <label>Лицевий рахунок
+                <input type="text" name="account_number" value="{{ account_number }}">
+            </label>
+            <br>
+            <label>Електронна пошта
+                <input type="text" name="account_email" value="{{ account_email }}">
+            </label>
+            <br>
+            <label>Номер телефона
+                <input type="text" name="account_phone_number" value="{{ account_phone_number }}">
+            </label>
+            <br>
+            <label>Призвіще
+                <input type="text" id="account_surname" name="account_surname" value="{{ account_surname }}">
+            </label>
+            <br>
+            <label>Показник лічильника гарячої води
+                <input type="text" id="hot_water_counter" name="hot_water_counter" value="{{ hot_water_counter }}">
+            </label>
+            <br>
+            <label>Показник лічильника електроенергії
+                <input type="text" id="electricity_counter" name="electricity_counter" value="{{ electricity_counter }}">
+            </label>
+            <br>
+            <label>Пароль до сайту Запоріжжяелектропостачання
+                <input type="text" id="elektropostach_password" name="elektropostach_password" value="{{ elektropostach_password }}">
+            </label>
+            <br>
+            <label>Пароль до сайту Водоканал
+                <input type="text" id="vodokanal_password" name="vodokanal_password" value="{{ vodokanal_password }}">
+            </label>
+            <br>
+            <label>Показник лічильника холодної води
+                <input type="text" id="cold_water_counter" name="cold_water_counter" value="{{ cold_water_counter }}">
+            </label>
+            <br>
+            <button type="submit">Відправити</button>
+            <button type="reset" onclick="ClearLabels();">Очистити</button>
+        </form>
+    </body>
+</html>

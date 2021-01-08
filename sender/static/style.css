@@ -1,0 +1,28 @@
+body {
+    margin: 0% 20%;
+	padding: 3%;
+	background: #ffffff;
+	line-height: 1.5;
+    font-family: sans-serif;
+}
+
+h2 {
+    text-align: center;
+}
+
+input {
+	border-radius: 50px;
+    margin: 10px;
+}
+
+.greenlabel{
+    background-color: green
+}
+
+.redlabel{
+    background-color: red
+}
+
+.label{
+    background-color: transparent
+}
